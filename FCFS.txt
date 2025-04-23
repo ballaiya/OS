@@ -1,0 +1,80 @@
+FCFS
+program:
+
+#include<stdio.h>
+void findWaitingTime(int processes[], int n, int bt[], int wt[])
+{
+wt[0] = 0;
+for (int i = 1; i < n; i++)
+{
+wt[i] = wt[i-1] + bt[i-1];
+}
+}
+void findTurnAroundTime(int processes[], int n, int bt[], int wt[], int tat[])
+{
+for (int i = 0; i < n; i++)
+{
+tat[i] = bt[i] + wt[i];
+}
+}
+void findGanttChart(int processes[], int n, int bt[], int wt[])
+{
+printf("\nGantt Chart:\n");
+printf("-------------------------------------------------------------\n");
+printf("| Process |");
+for (int i = 0; i < n; i++)
+{
+printf(" P%d |", processes[i]);
+}
+printf("\n-------------------------------------------------------------\n");
+printf("| Time |");
+for (int i = 0; i < n; i++)
+{
+printf(" %d |", wt[i]);
+}
+printf("\n-------------------------------------------------------------\n");
+}
+void findAvgTime(int processes[], int n, int bt[])
+{
+int wt[n], tat[n];
+float total_wt = 0, total_tat = 0;
+findWaitingTime(processes, n, bt, wt);
+findTurnAroundTime(processes, n, bt, wt, tat);
+printf("Process Burst Time Waiting Time Turnaround Time\n");
+for (int i = 0; i < n; i++)
+{
+total_wt += wt[i];
+total_tat += tat[i];
+printf(" %d\t\t%d\t\t%d\t\t%d\n", processes[i], bt[i], wt[i], tat[i]);
+}
+float avg_wt = total_wt / n;
+float avg_tat = total_tat / n;
+printf("\nAverage Waiting Time: %.2f\n", avg_wt);
+printf("Average Turnaround Time: %.2f\n", avg_tat);
+findGanttChart(processes, n, bt, wt);
+}
+int main()
+{
+int processes[] = {1, 2, 3, 4}; 
+int n = sizeof(processes) / sizeof(processes[0]);
+int burst_time[] = {6, 8, 7, 3}; 
+findAvgTime(processes, n, burst_time);
+return 0;
+}
+
+
+
+
+SAMPLE OUTPUT :
+Process Burst Time Waiting Time Turnaround Time
+1 6 0 6
+2 8 6 14
+3 7 14 21
+4 3 21 24
+Average Waiting Time: 10.25
+Average Turnaround Time: 16.25
+Gantt Chart:
+-------------------------------------------------------------
+| Process | P1 | P2 | P3 | P4 |
+-------------------------------------------------------------
+| Time | 0 | 6 | 14 | 21 | 24 |

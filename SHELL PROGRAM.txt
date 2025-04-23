@@ -1,0 +1,56 @@
+1.AREA and CIRCUMFERENCE OF THE CIRCLE
+
+PROGRAM: 
+
+#shell program to calculate the area and circumference of the circle  
+echo enter the radius 
+read r 
+area=`expr 22 / 7 \* $r \* $r`  
+circumference=`expr 2 \* 22 / 7 \* $r`  
+echo area= $area 
+echo circumference= $circumference 
+
+
+OUTPUT : 
+enter the radius 
+5 
+area= 75 
+circumference= 30 
+
+
+2. SWAPPING OF TWO NUMBERS
+
+PROGRAM: 
+#shell program to swap two numbers using a temporary variable  
+echo "enter the two numbers for swapping" 
+read a b 
+echo Before swapping  
+echo A=$a and B=$b c=$a 
+a=$b b=$c 
+echo After swapping echo A=$a and B=$b  
+
+
+OUTPUT: 
+enter the two numbers for swapping 40 67 
+Before swapping A= 40 and  B= 67 
+After swapping A= 67 and B= 40
+
+
+3.GROSS SALARY
+
+PROGRAM: 
+#shell program to find the gross salary 
+echo Enter the employee name 
+read name 
+echo enter the basic salary  
+read s 
+da=`expr $s \* 47 / 100` hra=`expr $s \* 12 / 100`  
+cca=`expr $s \* 3 / 100` 
+gross=`expr $s + $hra + $cca + $da`  
+echo The gross salary of $name is $gross 
+
+
+OUTPUT : 
+Enter the employee name Saravanan 
+Enter The Basic salary 25000 
+The gross salary of Saravanan is 40500

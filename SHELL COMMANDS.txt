@@ -1,0 +1,82 @@
+SHELL COMMANDS 
+
+a) date 
+–used to check the date and time 
+Syn:$date 
+
+Format Purpose Example Result 
++%m To display only month $date+%m 06 
++%h To display month name $date+%h June 
++%d To display day of month $date+%d O1 
++%y To display last two digits of years $date+%y 09 
++%H To display hours $date+%H 10 
++%M To display minutes $date+%M 45 
++%S To display seconds $date+%S 55 
+ 
+b) cal 
+–used to display the calendar 
+Syn:$cal 2 2009 
+ 
+c) echo
+ –used to print the message on the screen. 
+Syn:$echo “text” 
+ 
+d) ls 
+–used to list the files. Your files are kept in a directory. 
+Syn:$lsls–s 
+All files (include files with prefix) 
+ls–l Lodetai (provide file statistics) 
+ls–t Order by creation time 
+ls– u Sort by access time (or show when last accessed together with –l) 
+ls–s Order by size 
+ls–r Reverse order 
+ls–f Mark directories with /,executable with* , symbolic links with @, local sockets with =, 
+named pipes(FIFOs)with 
+ls–s Show file size 
+ls– h“ Human Readable”, show file size in Kilo Bytes & Mega Bytes (h can be used together with –l or)   
+ls[a-m]*List all the files whose name begin with alphabets From „a‟ to „m‟ 
+ls[a]*List all the files whose name begins with „a‟ or „A‟ 
+Eg:$ls>my list Output of „ls‟ command is stored to disk file named „my list‟ 
+ 
+
+e) lp –used to take printouts 
+Syn:$lp filename 
+
+f) man –used to provide manual help on every UNIX commands. 
+Syn:$man unix command 
+$man cat 
+ 
+
+g)who & whoami –it displays data about all users who have logged into the system currently. The next command 
+displays about current user only. 
+Syn:$who$whoami 
+ 
+
+
+h) uptime –tells you how long the computer has been running since its last reboot or power-off. 
+Syn:$uptime 
+
+ 
+i) uname –it displays the system information such as hardware platform, system name and processor, OS type. 
+Syn:$uname–a 
+ 
+
+j) hostname –displays and set system host name 
+Syn:$ hostname 
+ 
+
+k) bc –stands for „best calculator‟ 
+ 
+$bc $ bc $ bc $ bc 
+10/2*3 scale =1 ibase=2 sqrt(196) 
+15 2.25+1 obase=16 14 quit 
+ 3.35 11010011  
+ quit 89275  
+  1010  
+  Ā  
+  Quit  
+$bc $ bc-l   
+for(i=1;i<3;i=i+1) i scale=2   
+1 s(3.14)   
+2 0   
+3 quit  
