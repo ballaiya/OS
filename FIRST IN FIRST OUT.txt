@@ -3,10 +3,9 @@
 
 #include<stdio.h> 
 #include<conio.h> 
-main() 
+int main() 
 { 
 int i, j, k, f, pf=0, count=0, rs[25], m[10], n; 
-clrscr(); 
 printf("\n Enter the length of reference string -- "); 
 scanf("%d",&n); 
 printf("\n Enter the reference string -- "); 
@@ -46,6 +45,7 @@ getch();
 OUTPUT: 
 Enter the length of reference string – 20 
 Enter the reference string --   7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1 
+//note: give space between each output//
 Enter no. of frames --   3 
  
 The Page Replacement Process is – 
