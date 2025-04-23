@@ -2,8 +2,8 @@
 
  
 #include <stdio.h>
-#include <stdlib.h>   // for exit()
-#include <string.h>   // for strcmp() and strcpy()
+#include <stdlib.h>   
+#include <string.h>   
 
 struct {
     char dname[10], fname[10][10];
@@ -20,7 +20,7 @@ void main() {
         scanf("%d", &ch);
 
         switch (ch) {
-            case 1:  // Create Directory
+            case 1:  
                 if (dcnt < 10) {
                     printf("Enter name of directory -- ");
                     scanf("%s", dir[dcnt].dname);
@@ -32,7 +32,7 @@ void main() {
                 }
                 break;
 
-            case 2:  // Create File
+            case 2:  
                 printf("Enter name of the directory -- ");
                 scanf("%s", d);
                 for (i = 0; i < dcnt; i++) {
@@ -52,7 +52,7 @@ void main() {
                     printf("Directory %s not found", d);
                 break;
 
-            case 3:  // Delete File
+            case 3:  
                 printf("Enter name of the directory -- ");
                 scanf("%s", d);
                 for (i = 0; i < dcnt; i++) {
@@ -75,7 +75,7 @@ void main() {
                 end_del:
                 break;
 
-            case 4:  // Search File
+            case 4:  
                 printf("Enter name of the directory -- ");
                 scanf("%s", d);
                 for (i = 0; i < dcnt; i++) {
@@ -96,7 +96,7 @@ void main() {
                 end_search:
                 break;
 
-            case 5:  // Display
+            case 5:  
                 if (dcnt == 0) {
                     printf("\nNo Directories");
                 } else {
