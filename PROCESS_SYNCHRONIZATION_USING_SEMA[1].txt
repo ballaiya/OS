@@ -1,0 +1,55 @@
+/* PROCESS SYNCHRONIZATION USING SEMAPHORES */ 
+
+#include <pthread.h>  
+#include <semaphore.h>  
+#include <unistd.h>  
+#include <stdio.h>
+
+sem_t mutex;  
+int bal = 500; 
+
+void* threada(void* arg) {  
+    sem_wait(&mutex);  
+    printf("\nThread 1 Entered\n");  
+    bal = bal - 100; 
+    printf("Thread 1 - Balance: %d\n", bal);  
+    sleep(10);  
+    printf("Thread 1 Exit\n");  
+    sem_post(&mutex);  
+    return NULL;
+}  
+
+void* threadb(void* arg) {  
+    sem_wait(&mutex);  
+    printf("\nThread 2 Entered\n");  
+    bal = bal - 50; 
+    printf("Thread 2 - Balance: %d\n", bal);  
+    sleep(10);  
+    printf("Thread 2 Exit\n");  
+    sem_post(&mutex);  
+    return NULL;
+}  
+
+int main() {  
+    sem_init(&mutex, 0, 1);  
+
+    pthread_t t1, t2;  
+    pthread_create(&t1, NULL, threada, NULL);  
+    sleep(2);  // Delay to let thread 1 enter first
+    pthread_create(&t2, NULL, threadb, NULL);  
+
+    pthread_join(t1, NULL);  
+    pthread_join(t2, NULL);  
+
+    sem_destroy(&mutex);  
+    return 0;  
+}
+
+ 
+OUTPUT: 
+Thread1 Entered  
+Thread1 - A:bal:400  
+Thread1 Exit  
+Thread2 Entered  
+Thread2 bal:350  
+Thread 2 Exit 
